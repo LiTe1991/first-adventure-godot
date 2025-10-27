@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://0emwsbycfbr"]
+
+[ext_resource type="Script" uid="uid://cnr0eqsdkcdjp" path="res://SceneEntreced/SceneEntreced.cs" id="1_xwbdk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo00q"]
+size = Vector2(15.25, 11.5)
+
+[node name="SceneEntreced" type="Area2D"]
+script = ExtResource("1_xwbdk")
+nextScene = "res://DungeonScene/dungeon_scene.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wo00q")
+
+[connection signal="body_entered" from="." to="." method="_onBodyEntered"]
+[connection signal="body_exited" from="." to="." method="_OnBodyExited"]

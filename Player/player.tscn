@@ -1,0 +1,155 @@
+[gd_scene load_steps=21 format=3 uid="uid://b46juufp3gecu"]
+
+[ext_resource type="Script" uid="uid://bpnpjnv22wlha" path="res://Player/Player.cs" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://cuun63885gqpv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Hunter/SeparateAnim/Walk.png" id="2_4ntmi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ntmi"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btcbx"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3vf3"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apopc"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5htga"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5o4e"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu6f8"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkpta"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfmf2"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pisgm"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8h54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ntmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btcbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwnis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53q1")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhl08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00tjw")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3vf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apopc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5htga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5o4e")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu6f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkpta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfmf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pisgm")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+radius = 5.0
+height = 12.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_4ntmi")
+
+[node name="MoveAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l8h54")
+animation = &"move_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_onrkg")
